@@ -1,0 +1,16 @@
+.facturacion-container {
+    color: #fff;
+    background-color: #212529;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.buscarBtn {
+    margin-top: 10px;
+}
+
+.table {
+    margin-top: 10px;
+    color: #fff;
+}

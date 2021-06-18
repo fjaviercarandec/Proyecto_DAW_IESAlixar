@@ -120,5 +120,8 @@
       }
     }
   },
-  "defaultProject": "proyectoDAW-front"
+  "defaultProject": "proyectoDAW-front",
+  "cli": {
+    "analytics": false
+  }
 }

@@ -1,0 +1,52 @@
+<div class="container register-container">
+  <form name="registroForm" [formGroup]="form" class="container">
+    <h2>Registro</h2>
+    <div class="row">
+      <div class="col-4">
+        <label for="FormControlInput" class="form-label">Nombre:</label>
+        <input type="text" class="form-control" id="FormControlInput" placeholder="Coloque su nombre..."
+          [(ngModel)]="nombre" formControlName="nombre"
+          [ngClass]="{'is-invalid':form.get('nombre').touched && form.get('nombre').invalid}">
+        <div class="invalid-feedback">
+          El nombre es obligatorio
+        </div>
+      </div>
+      <div class="col-4">
+        <label for="FormControlInput1" class="form-label">Apellido/s:</label>
+        <input type="text" class="form-control" id="FormControlInput1" placeholder="Coloque su apellido..."
+          [(ngModel)]="apellido">
+      </div>
+      <div class="col-4">
+        <label for="FormControlInput2" class="form-label">Telefono:</label>
+        <input type="text" class="form-control" id="FormControlInput2" placeholder="Coloque su telefono..."
+          [(ngModel)]="telefono">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <label for="FormControlInput3" class="form-label">Email:</label>
+        <input type="text" class="form-control" id="FormControlInput3" placeholder="Coloque su email..."
+          [(ngModel)]="email" formControlName="email"
+          [ngClass]="{'is-invalid':form.get('email').touched && form.get('email').invalid}">
+        <div *ngIf="form.get('email').touched && form.get('email').invalid" class="invalid-feedback">
+          <div *ngIf="form.get('email').errors.required">El email es obligatorio</div>
+          <div *ngIf="form.get('email').errors.email">No es un email valido</div>
+        </div>
+
+      </div>
+      <div class="col-4">
+        <label for="FormControlInput4" class="form-label">Contraseña:</label>
+        <input type="password" class="form-control" id="FormControlInput4" [(ngModel)]="pass" formControlName="password"
+          [ngClass]="{'is-invalid':form.get('password').touched && form.get('password').invalid}">
+        <div class="invalid-feedback">
+          La contraseña es obligatoria
+        </div>
+
+      </div>
+      <div class="col-2 align-self-end form-group">
+        <button type="button" class="btn btn-success" [disabled]="!form.valid" (click)="signIn()">Registrar</button>
+      </div>
+    </div>
+  </form>
+
+</div>

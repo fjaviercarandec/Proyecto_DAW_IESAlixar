@@ -1,0 +1,36 @@
+.username {
+    color: #fff;
+}
+
+img {
+    height: 40px;
+    width: 55px;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+li {
+    padding: 10px;
+    display: inline-block;
+    margin: 0 8%;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.navegador-item {
+    text-align: center;
+    padding: 10px;
+}
+
+.navegador-item:hover {
+    border-radius: 10px;
+    background-color: rgb(49, 49, 49);
+}

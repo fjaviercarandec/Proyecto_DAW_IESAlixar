@@ -1,0 +1,34 @@
+<div class="collapse" id="navbarToggleExternalContent">
+  <div class="bg-dark row p-4">
+    <div class="col-md-2 navegador-item"><a href="http://localhost:4200/user">Usuarios</a></div>
+    <div class="col-md-2 navegador-item"><a href="http://localhost:4200/client">Clientes</a></div>
+    <div class="col-md-2 navegador-item"><a href="http://localhost:4200/stock">Almacen</a></div>
+    <div class="col-md-2 navegador-item"><a href="http://localhost:4200/facturacion">Facturación</a>
+    </div>
+    <div class="col-md-2 navegador-item"><a href="#">Pedidos</a></div>
+    <div class="col-md-2 navegador-item"><a href="http://localhost:4200/invoicing">Balance</a></div>
+  </div>
+</div>
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container-fluid row">
+    <div class="col">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+    <div class="username col" style="text-align: center" *ngIf="isLogin">
+      <img class="img-fluid" src="/assets/img/user-icon.png">
+      {{user}}
+    </div>
+    <div class="col" style="text-align:right;">
+      <div *ngIf="!isLogin">
+        <button type="button" class="btn btn-success logout" (click)="login()">Log in</button>
+      </div>
+      <div *ngIf="isLogin">
+        <button type="button" class="btn btn-danger logout" (click)="logout()">Log out</button>
+      </div>
+    </div>
+  </div>
+</nav>

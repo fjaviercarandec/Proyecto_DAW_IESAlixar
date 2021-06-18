@@ -1,0 +1,108 @@
+<div class="container stock-container">
+  <div class="container">
+    <h2>Añadir a almacén</h2>
+    <div class="row">
+      <div class="col-6">
+        <label for="FormControlInput" class="form-label">Nombre:</label>
+        <input type="text" class="form-control" id="FormControlInput"
+          placeholder="Coloque aqui el nombre del producto..." [(ngModel)]="nombre">
+      </div>
+      <div class="col-2">
+        <label for="FormControlInput1" class="form-label">Cantidad:</label>
+        <input type="text" class="form-control" id="FormControlInput1" [(ngModel)]="cantidad">
+      </div>
+      <div class="col-1">
+        <label for="FormControlInput2" class="form-label">Talla:</label>
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="talla">
+          <option value="XS">XS</option>
+          <option value="S">S</option>
+          <option value="M" selected>M</option>
+          <option value="L">L</option>
+          <option value="XL">XL</option>
+        </select>
+      </div>
+      <div class="col-2">
+        <label for="FormControlInput3" class="form-label">Color:</label>
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="color">
+          <option value="Azul">Azul</option>
+          <option value="Verde">Verde</option>
+          <option value="Rojo" selected>Rojo</option>
+          <option value="Blanco">Blanco</option>
+          <option value="Negro">Negro</option>
+        </select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        <label for="FormControlTextarea1" class="form-label">Descripción:</label>
+        <textarea class="form-control" id="FormControlTextarea1" rows="3"
+          placeholder="Escriba una breve descripción del producto..." [(ngModel)]="descripcion"></textarea>
+      </div>
+      <div class="col-4 align-self-end">
+        <button type="button" class="btn btn-success" (click)="addProduct()">Añadir</button>
+      </div>
+    </div>
+    <hr>
+    <h2>Busqueda en almacén</h2>
+    <div class="row">
+      <div class="col-4">
+        <label for="FormControlInput1" class="form-label">ID Producto:</label>
+        <input type="text" class="form-control" id="FormControlInput1" placeholder="ID del producto..."
+          [(ngModel)]="idSearch">
+      </div>
+      <div class="col-4">
+        <label for="FormControlInput2" class="form-label">Nombre:</label>
+        <input type="text" class="form-control" id="FormControlInput2" placeholder="Nombre del producto..."
+          [(ngModel)]="nameSearch">
+      </div>
+      <div class="col-2">
+        <label for="FormControlInput3" class="form-label">Color:</label>
+        <select class="form-select" aria-label="Default select example" [(ngModel)]="colorSearch">
+          <option value="Azul" selected>Azul</option>
+          <option value="Verde">Verde</option>
+          <option value="Rojo">Rojo</option>
+          <option value="Blanco">Blanco</option>
+          <option value="Negro">Negro</option>
+          <option value="">Sin color</option>
+        </select>
+      </div>
+      <div class="col-2 align-self-end">
+        <button type="button" class="btn btn-success" (click)="searchProducts()">Buscar</button>
+      </div>
+    </div>
+
+    <div>
+      <!-- Añadir ngFor para mostrar los productos encontrados -->
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID PRODUCTO</th>
+            <th scope="col">NOMBRE</th>
+            <th scope="col">CANTIDAD</th>
+            <th scope="col">TAMAÑO</th>
+            <th scope="col">COLOR</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let producto of productosSearch">
+            <th scope="row">{{producto.idProduct}}</th>
+            <td>{{producto.name}}</td>
+            <td>{{producto.quantity}}</td>
+            <td>{{producto.size}}</td>
+            <td>{{producto.color}}</td>
+            <td>
+              <button type="button" class="btn btn-success botonStock"
+                (click)="updateProduct($event)">Actualizar</button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-danger botonStock" (click)="deleteProducto($event)">Borrar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>

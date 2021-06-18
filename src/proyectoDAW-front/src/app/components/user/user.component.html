@@ -1,0 +1,83 @@
+<div class="container user-container">
+  <div class="adminarea">
+    <div class="container">
+      <h2>Usuarios a validar</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID USUARIO</th>
+            <th scope="col">NOMBRE</th>
+            <th scope="col">APELLIDOS</th>
+            <th scope="col"></th>
+            <!-- <th scope="col"></th> -->
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let active of actives">
+            <th scope="row">{{active.idUser}}</th>
+            <td>{{active.name}}</td>
+            <td>{{active.surnames}}</td>
+            <td>
+              <button type="button" class="btn btn-success activeBoton"
+                (click)="validarUsuario($event)">Validar</button>
+            </td>
+            <!-- <td>
+              <button type="button" class="btn btn-danger activeBoton">Denegar</button>
+            </td> -->
+          </tr>
+        </tbody>
+      </table>
+
+    </div>
+  </div>
+  <hr>
+  <div class="container">
+    <h2>Busqueda de usuario</h2>
+    <div class="row">
+      <div class="col-4">
+        <label for="FormControlInput" class="form-label">ID:</label>
+        <input type="text" class="form-control" id="FormControlInput" placeholder="Coloque el id aqui..."
+          [(ngModel)]="idUser">
+      </div>
+      <div class="col-4">
+        <label for="FormControlInput1" class="form-label">Nombre:</label>
+        <input type="text" class="form-control" id="FormControlInput1" placeholder="Coloque el nombre aqui..."
+          [(ngModel)]="nameUser">
+      </div>
+      <div class="col-4">
+        <label for="FormControlInput2" class="form-label">Apellido/s:</label>
+        <input type="text" class="form-control" id="FormControlInput2" placeholder="Coloque los apellidos aqui..."
+          [(ngModel)]="surnameUser">
+      </div>
+    </div>
+    <div class="row justify-content-end">
+      <div class="col-4">
+        <button type="button" class="btn btn-success" (click)="getUser()">Buscar</button>
+      </div>
+    </div>
+
+    <!-- Añadir ngFor para mostrar los usuarios encontrados -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID USUARIO</th>
+          <th scope="col">NOMBRE</th>
+          <th scope="col">APELLIDOS</th>
+          <th scope="col">TELEFONO</th>
+          <th scope="col">EMAIL</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users">
+          <th scope="row">{{user.idUser}}</th>
+          <td>{{user.name}}</td>
+          <td>{{user.surnames}}</td>
+          <td>{{user.phone}}</td>
+          <td>{{user.email}}</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

@@ -1,0 +1,56 @@
+<div class="container client-container">
+  <div class="container">
+    <h2>Busqueda de Cliente</h2>
+    <div class="row">
+      <div class="col-4">
+        <label for="FormControlInput" class="form-label">ID:</label>
+        <input type="text" class="form-control" id="FormControlInput" placeholder="Coloque el id aqui..."
+          [(ngModel)]="idClient">
+      </div>
+      <div class="col-4">
+        <label for="FormControlInput1" class="form-label">Nombre:</label>
+        <input type="text" class="form-control" id="FormControlInput1" placeholder="Coloque el nombre aqui..."
+          [(ngModel)]="nombreClient">
+      </div>
+      <div class="col-4">
+        <label for="FormControlInput2" class="form-label">Apellido/s:</label>
+        <input type="text" class="form-control" id="FormControlInput2" placeholder="Coloque los apellidos aqui..."
+          [(ngModel)]="apellidoClient">
+      </div>
+    </div>
+    <div class="row justify-content-end">
+      <div class="col-4">
+        <button type="button" class="btn btn-success" (click)="getClient()">Buscar</button>
+      </div>
+    </div>
+
+    <!-- Añadir ngFor para mostrar los usuarios encontrados -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID CLIENTE</th>
+          <th scope="col">NOMBRE</th>
+          <th scope="col">APELLIDOS</th>
+          <th scope="col">TELEFONO</th>
+          <th scope="col">EMAIL</th>
+          <th scope="col">DIRECCION</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let client of clients">
+          <th scope="row">{{client.idClient}}</th>
+          <td>{{client.name}}</td>
+          <td>{{client.surname}}</td>
+          <td>{{client.phone}}</td>
+          <td>{{client.email}}</td>
+          <td>{{client.address}}</td>
+          <td>
+            <button type="button" class="btn btn-danger clientStock" (click)="deleteCliente($event)">Borrar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

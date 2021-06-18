@@ -1,0 +1,129 @@
+<div class="container facturacion-container">
+  <h2>Busqueda cliente para facturacion</h2>
+  <div class="row">
+    <div class="col-4">
+      <label for="FormControlInput" class="form-label">ID:</label>
+      <input type="text" class="form-control" id="FormControlInput" placeholder="Coloque el id aqui..."
+        [(ngModel)]="idClient">
+    </div>
+    <div class="col-4">
+      <label for="FormControlInput1" class="form-label">Nombre:</label>
+      <input type="text" class="form-control" id="FormControlInput1" placeholder="Coloque el nombre aqui..."
+        [(ngModel)]="nombreClient">
+    </div>
+    <div class="col-4">
+      <label for="FormControlInput2" class="form-label">Apellido/s:</label>
+      <input type="text" class="form-control" id="FormControlInput2" placeholder="Coloque los apellidos aqui..."
+        [(ngModel)]="apellidoClient">
+    </div>
+  </div>
+  <div class="row justify-content-end">
+    <div class="col-4">
+      <button type="button" class="btn btn-success buscarBtn" (click)="getClient()">Buscar</button>
+    </div>
+  </div>
+
+  <table class="table" *ngIf="clients && !clienteSeleccionado">
+    <thead>
+      <tr>
+        <th scope="col">ID CLIENTE</th>
+        <th scope="col">NOMBRE</th>
+        <th scope="col">APELLIDOS</th>
+        <th scope="col">TELEFONO</th>
+        <th scope="col">EMAIL</th>
+        <th scope="col">DIRECCION</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let client of clients">
+        <th scope="row">{{client.idClient}}</th>
+        <td>{{client.name}}</td>
+        <td>{{client.surname}}</td>
+        <td>{{client.phone}}</td>
+        <td>{{client.email}}</td>
+        <td>{{client.address}}</td>
+        <td>
+          <button class="btn btn-success" (click)="selectCliente($event)">Seleccionar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div *ngIf="clienteSeleccionado">
+    <div>Cliente seleccionado: <b>{{nombreClienteSeleccionado}} {{apellidoClienteSeleccionado}}</b></div>
+    <div>
+      <h2>Buscar productos</h2>
+      <div class="row">
+        <div class="col-4">
+          <label for="FormControlInput4" class="form-label">ID Producto:</label>
+          <input type="text" class="form-control" id="FormControlInput4" placeholder="ID del producto..."
+            [(ngModel)]="idProducto">
+        </div>
+        <div class="col-4">
+          <label for="FormControlInput5" class="form-label">Nombre:</label>
+          <input type="text" class="form-control" id="FormControlInput5" placeholder="Nombre del producto..."
+            [(ngModel)]="nombreProducto">
+        </div>
+        <div class="col-2">
+          <label for="FormControlInput6" class="form-label">Color:</label>
+          <select class="form-select" [(ngModel)]="colorProducto">
+            <option value="Azul">Azul</option>
+            <option value="Verde">Verde</option>
+            <option value="Rojo">Rojo</option>
+            <option value="Blanco">Blanco</option>
+            <option value="Negro">Negro</option>
+            <option value="" selected>Sin color</option>
+          </select>
+        </div>
+        <div class="col-2 align-self-end">
+          <button type="button" class="btn btn-success" (click)="searchProducts()">Buscar</button>
+        </div>
+      </div>
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID PRODUCTO</th>
+            <th scope="col">NOMBRE</th>
+            <th scope="col">CANTIDAD</th>
+            <th scope="col">TAMAÑO</th>
+            <th scope="col">COLOR</th>
+            <th scope="col">CANTIDAD DESEADA</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let producto of productos">
+            <th scope="row">{{producto.idProduct}}</th>
+            <td>{{producto.name}}</td>
+            <td>{{producto.quantity}}</td>
+            <td>{{producto.size}}</td>
+            <td>{{producto.color}}</td>
+            <td>
+              <input type="text" class="form-control" style="width: 30%">
+            </td>
+            <td>
+              <button type="button" class="btn btn-success" (click)="addProducto($event)">Añadir</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div *ngIf="productoSeleccionado">
+        <h2>Productos seleccionados</h2>
+        <div *ngFor="let listaProd of listaProductoSeleccionado" class="row">
+          <div class="col-1"><button class="btn btn-danger" (click)="borrarProdCarrito($event)">X</button></div>
+          <div class="col-1">{{listaProd.cantidad}}</div>
+          <div class="col-1">{{listaProd.nombre}}</div>
+          <div class="col-1">{{listaProd.talla}}</div>
+          <div class="col-1">{{listaProd.color}}</div>
+        </div>
+        <div class="row justify-content-end">
+          <div class="col-2">
+            <button class="btn btn-success" (click)="addVenta()">Añadir venta</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

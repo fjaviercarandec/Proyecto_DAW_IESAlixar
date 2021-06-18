@@ -1,0 +1,25 @@
+.user-container {
+    color: #fff;
+    background-color: #212529;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+}
+
+.btn {
+    margin-top: 10px;
+}
+
+.user-find {
+    margin-top: 20px;
+    margin-left: 4px;
+}
+
+.table {
+    margin-top: 12px;
+    color: #fff;
+}
+
+.activeBoton {
+    margin-top: 0px;
+}
